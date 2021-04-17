@@ -39,13 +39,18 @@
     "cjs": true
   },
   "devDependencies": {
-    "@brixtol/eslint-config-javascript": "workspace:^1.0.0",
-    "@brixtol/prettier-config": "workspace:^1.0.0",
-    "@rollup/plugin-commonjs": "^15.1.0",
+    "@brixtol/eslint-config-javascript": "workspace:^2.0.1",
+    "@brixtol/prettier-config": "workspace:^1.0.3",
+    "@rollup/plugin-commonjs": "^18.0.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "peerDependencies": {
     "ava": "^3.13.0",
     "esm": "^3.2.25"
+  },
+  "dependencies": {
+    "fs-extra": "^9.1.0",
+    "html-minifier": "^4.0.0",
+    "svgstore": "^3.0.0-2"
   }
 }
