@@ -1,14 +1,14 @@
 {
   "name": "@brixtol/rollup-html",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Hard fork of @rollup/html with some adjustments to better fit bundle processing",
   "author": "ΝΙΚΟΛΑΣ ΣΑΒΒΙΔΗΣ",
   "owner": "SISSEL SAAS",
   "license": "MIT",
-  "main": "./package/index.cjs.js",
+  "main": "./package/index.js",
   "exports": {
-    "require": "./package/index.cjs.js",
-    "import": "./package/index.cjs.js"
+    "require": "./package/index.js",
+    "import": "./package/index.mjs"
   },
   "types": "index.d.ts",
   "private": false,

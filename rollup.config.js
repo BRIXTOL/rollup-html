@@ -7,13 +7,16 @@ export default [
     output: [
       {
         format: 'cjs',
-        file: 'package/index.cjs.js',
-        sourcemap: false
+        file: 'package/index.js',
+        sourcemap: false,
+        exports: 'named'
       },
       {
         format: 'es',
-        file: 'package/index.es.js',
-        sourcemap: false
+        file: 'package/index.mjs',
+        sourcemap: false,
+        exports: 'named'
+
       }
     ],
     plugins: [
