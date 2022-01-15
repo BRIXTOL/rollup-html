@@ -7,13 +7,13 @@ export default [
     output: [
       {
         format: 'cjs',
-        file: 'package/index.js',
+        file: 'index.js',
         sourcemap: false,
         exports: 'named'
       },
       {
         format: 'es',
-        file: 'package/index.mjs',
+        file: 'index.mjs',
         sourcemap: false,
         exports: 'named'
 

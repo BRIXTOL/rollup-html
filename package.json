@@ -1,19 +1,23 @@
 {
   "name": "@brixtol/rollup-html",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Hard fork of @rollup/html with some adjustments to better fit bundle processing",
   "author": "ΝΙΚΟΛΑΣ ΣΑΒΒΙΔΗΣ",
   "owner": "SISSEL SAAS",
   "license": "MIT",
-  "module": "./package/index.mjs",
-  "main": "./package/index.js",
+  "module": "index.mjs",
+  "main": "index.js",
+  "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./package/index.mjs",
-      "require": "./package/index.js"
+      "import": "./index.mjs",
+      "require": "./index.js"
     }
   },
-  "types": "index.d.ts",
+  "files": [
+    "*.d.ts",
+    "index.*"
+  ],
   "private": false,
   "repository": {
     "type": "git",
@@ -30,7 +34,8 @@
   "prettier": "@brixtol/prettier-config",
   "eslintConfig": {
     "ignorePatterns": [
-      "package"
+      "index.js",
+      "index.mjs"
     ],
     "extends": [
       "@brixtol/eslint-config-javascript"
