@@ -41,7 +41,7 @@ async function svgSprite (input, options = {}) {
 
 }
 
-const makeHtmlAttributes = (attributes) => {
+export const makeHtmlAttributes = (attributes) => {
 
   if (!attributes) return ''
 
@@ -156,7 +156,7 @@ const defaults = {
   title: 'Rollup Bundle'
 }
 
-const html = (options = {}) => {
+export default (options = {}) => {
 
   const {
     attributes,
@@ -222,6 +222,3 @@ const html = (options = {}) => {
     }
   }
 }
-
-module.exports = html
-module.exports.makeHtmlAttributes = makeHtmlAttributes
