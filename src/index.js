@@ -56,9 +56,11 @@ const defaultTemplate = async (
     attributes,
     files,
     meta,
+    links,
     publicPath,
     title,
     nodes,
+    innerHTML,
     styles,
     sprite,
     minify
@@ -67,7 +69,8 @@ const defaultTemplate = async (
 
   const scripts = (files.js || []).map(({ fileName }) => {
     const attrs = makeHtmlAttributes(attributes.script)
-    return `<script src="${publicPath}${fileName}"${attrs}></script>`
+    const path = /^http/.test(fileName) ? fileName : `${publicPath}${fileName}`
+    return `<script src="${path}"${attrs}></script>`
   }).join('\n')
 
   if (styles) {
@@ -83,9 +86,14 @@ const defaultTemplate = async (
 
   }
 
-  const links = files.css.map(({ fileName }) => {
+  const linked = links.map((input) => {
+    return `<link${makeHtmlAttributes(input)}>`
+  }).join('\n')
+
+  const stylesheets = files.css.map(({ fileName }) => {
     const attrs = makeHtmlAttributes(attributes.link)
-    return `<link href="${publicPath}${fileName}" rel="stylesheet"${attrs}>`
+    const path = /^http/.test(fileName) ? fileName : `${publicPath}${fileName}`
+    return `<link href="${path}" rel="stylesheet"${attrs}>`
   }).join('\n')
 
   const metas = meta.map((input) => (
@@ -104,11 +112,13 @@ const defaultTemplate = async (
   <head>
     ${metas}
     <title>${title}</title>
-    ${links}
+    ${linked || ''}
+    ${stylesheets}
     ${scripts || ''}
   </head>
   <body>
     ${nodes}
+    ${innerHTML}
     ${icons}
   </body>
 </html>`
@@ -124,7 +134,6 @@ const supportedFormats = [ 'es', 'esm', 'iife', 'umd' ]
 
 const defaults = {
   attributes: {
-    link: null,
     html: { lang: 'en' }
   },
   fileName: 'index.html',
@@ -134,6 +143,8 @@ const defaults = {
     options: {}
   },
   nodes: null,
+  innerHTML: '',
+  links: null,
   meta: [
     {
       charset: 'utf-8'
@@ -154,8 +165,10 @@ const html = (options = {}) => {
     publicPath,
     template,
     title,
+    links,
     styles,
     sprite,
+    innerHTML,
     nodes,
     minify
   } = Object.assign({}, defaults, options)
@@ -187,10 +200,12 @@ const html = (options = {}) => {
         attributes,
         bundle,
         files,
+        links,
         meta,
         styles,
         sprite,
         nodes,
+        innerHTML,
         publicPath,
         title,
         minify

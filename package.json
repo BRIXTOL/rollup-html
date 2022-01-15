@@ -1,6 +1,6 @@
 {
   "name": "@brixtol/rollup-html",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Hard fork of @rollup/html with some adjustments to better fit bundle processing",
   "author": "ΝΙΚΟΛΑΣ ΣΑΒΒΙΔΗΣ",
   "owner": "SISSEL SAAS",
@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@brixtol/eslint-config-javascript": "workspace:^2.0.1",
-    "@brixtol/prettier-config": "workspace:^1.0.3",
-    "@rollup/plugin-commonjs": "^18.0.0",
+    "@brixtol/prettier-config": "workspace:^1.2.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "rollup-plugin-terser": "^7.0.2"
   },
   "peerDependencies": {
@@ -49,8 +49,8 @@
     "esm": "^3.2.25"
   },
   "dependencies": {
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "html-minifier": "^4.0.0",
-    "svgstore": "^3.0.0-2"
+    "svgstore": "^3.0.1"
   }
 }

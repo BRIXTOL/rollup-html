@@ -143,6 +143,11 @@ interface HTMLOptions {
     };
   };
 
+  innerHTML?: string;
+  /**
+   * List of `<link>` to be appended to `<head>` element
+   */
+  links?: object[];
   /**
    * List of Meta Tags to be appended to `<head>` element
    */
