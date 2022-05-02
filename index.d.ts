@@ -1,7 +1,8 @@
-import * as HTMLMinifier from "html-minifier";
+import * as HTMLMinifier from 'html-minifier';
+import type { Plugin } from 'rollup';
 
 interface HTMLOptions {
-  attributes: {
+  attributes?: {
     /**
      * Link Attribute inject into <head>
      *
@@ -52,7 +53,7 @@ interface HTMLOptions {
      *
      * @default 'before'
      */
-    place?: "before" | "after";
+    place?: 'before' | 'after';
   }[];
 
   /**
@@ -65,7 +66,7 @@ interface HTMLOptions {
      *
      * @default null
      */
-    input: string;
+    input?: string;
 
     /**
      * Options passed to SVG Store
@@ -138,9 +139,7 @@ interface HTMLOptions {
     /**
      * Property value should be the tag name, example: `div` or `main`
      */
-    [tagName: string]: {
-      [attributeName: string]: string;
-    };
+    [tagName: string]: { [attributeName: string]: string };
   };
 
   innerHTML?: string;
@@ -161,11 +160,11 @@ interface HTMLOptions {
   /**
    * Page Title
    */
-  title: string;
+  title?: string;
 }
 
 /**
  * Rollup plugin to take a list of globs, copy, transform, rename or repath
  * and optionally watch for changes, syncing those over.
  */
-export default function html(options: HTMLOptions): rollup.Plugin;
+export default function html(options: HTMLOptions): Plugin;

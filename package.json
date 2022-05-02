@@ -1,6 +1,6 @@
 {
   "name": "@brixtol/rollup-html",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Hard fork of @rollup/html with some adjustments to better fit bundle processing",
   "author": "ΝΙΚΟΛΑΣ ΣΑΒΒΙΔΗΣ",
   "owner": "SISSEL SAAS",
@@ -29,6 +29,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c --environment prod",
+    "postpublish": "pnpm up @brixtol/rollup-html -r",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prettier": "@brixtol/prettier-config",
@@ -38,33 +39,16 @@
       "index.mjs"
     ],
     "extends": [
-      "@brixtol/eslint-config-javascript"
+      "@brixtol/eslint-config"
     ]
-  },
-  "ava": {
-    "files": [
-      "tests/**/*"
-    ],
-    "concurrency": 5,
-    "require": [
-      "esm"
-    ]
-  },
-  "esm": {
-    "cjs": true
   },
   "devDependencies": {
-    "@brixtol/eslint-config-javascript": "workspace:^2.0.1",
+    "@brixtol/eslint-config": "workspace:^1.2.5",
     "@brixtol/prettier-config": "workspace:^1.2.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "rollup-plugin-terser": "^7.0.2"
-  },
-  "peerDependencies": {
-    "ava": "^3.13.0",
-    "esm": "^3.2.25"
+    "@brixtol/rollup-config": "workspace:^1.5.5"
   },
   "dependencies": {
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.1.0",
     "html-minifier": "^4.0.0",
     "svgstore": "^3.0.1"
   }
